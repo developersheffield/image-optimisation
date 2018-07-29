@@ -1,4 +1,16 @@
-:: Recursively create a crushed version of each png file
+:: Google PageSpeed optimisation
+FOR /r %~dp0 %%c in (*.jpg) DO (
+	%~dp0utils\pagespeed_optimize_image.exe "%%c" "%%c"
+)
+FOR /r %~dp0 %%c in (*.png) DO (
+	%~dp0utils\pagespeed_optimize_image.exe "%%c" "%%c"
+)
+FOR /r %~dp0 %%c in (*.gif) DO (
+	%~dp0utils\pagespeed_optimize_image.exe "%%c" "%%c"
+)
+
+
+:: PngCrush optimisation
 FOR /r %~dp0 %%c in (*.png) DO (
 	SET n="%%~pc%%~nc-min.png"
 	%~dp0\utils\pngcrush.exe -brute "%%c" "%%n"
@@ -12,7 +24,7 @@ FOR /r %~dp0 %%c in (*.png) DO (
 	)
 )
 
-:: Recursively create a crushed version of each jpg file
+:: JpegTran optimisation
 FOR /r %~dp0 %%c in (*.jpg) DO (
 	SET n="%%~pc%%~nc-min.jpg"
 	%~dp0\utils\jpegtran.exe -optimize "%%c" "%%n"
