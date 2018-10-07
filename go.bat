@@ -1,15 +1,3 @@
-:: Google PageSpeed optimisation
-FOR /r %~dp0 %%c in (*.jpg) DO (
-	%~dp0utils\pagespeed_optimize_image.exe "%%c" "%%c"
-)
-FOR /r %~dp0 %%c in (*.png) DO (
-	%~dp0utils\pagespeed_optimize_image.exe "%%c" "%%c"
-)
-FOR /r %~dp0 %%c in (*.gif) DO (
-	%~dp0utils\pagespeed_optimize_image.exe "%%c" "%%c"
-)
-
-
 :: PngCrush optimisation
 FOR /r %~dp0 %%c in (*.png) DO (
 	SET n="%%~pc%%~nc-min.png"
